@@ -9,6 +9,11 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
 const server = http.createServer(app);
 
 const io = new Server(server, {
