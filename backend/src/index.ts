@@ -5,12 +5,16 @@ import express from "express";
 import { Server } from "socket.io";
 import { UserManager } from "./managers/UserManger";
 
+import dotenv from "dotenv";
+dotenv.config();
+
 const app = express();
-const server = http.createServer(http);
+const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: process.env.FRONTEND_URL, // allow only your frontend
+    methods: ["GET", "POST"],
   },
 });
 
@@ -30,6 +34,8 @@ io.on("connection", (socket: Socket) => {
   });
 });
 
-server.listen(3000, () => {
-  console.log("listening on *:3000");
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () => {
+  console.log(`listening on *:${PORT}`);
 });
