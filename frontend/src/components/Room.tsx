@@ -20,15 +20,15 @@ export const Room = ({
   socket: Socket | null;
 }) => {
   const [lobby, setLobby] = useState(true);
-  const [sendingPc, setSendingPc] = useState<null | RTCPeerConnection>(null);
-  const [receivingPc, setReceivingPc] = useState<null | RTCPeerConnection>(
+  const [, setSendingPc] = useState<null | RTCPeerConnection>(null);
+  const [, setReceivingPc] = useState<null | RTCPeerConnection>(
     null
   );
-  const [remoteVideoTrack, setRemoteVideoTrack] =
+  const [, setRemoteVideoTrack] =
     useState<MediaStreamTrack | null>(null);
-  const [remoteAudioTrack, setRemoteAudioTrack] =
+  const [, setRemoteAudioTrack] =
     useState<MediaStreamTrack | null>(null);
-  const [remoteMediaStream, setRemoteMediaStream] =
+  const [, setRemoteMediaStream] =
     useState<MediaStream | null>(null);
   const [remoteName, setRemoteName] = useState<string>("Stranger");
 
